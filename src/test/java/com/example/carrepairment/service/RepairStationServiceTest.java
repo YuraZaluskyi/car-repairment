@@ -74,7 +74,6 @@ class RepairStationServiceTest {
     //given
     String nameStation = "Station";
 
-    //when
     when(repairStationRepository.findByName(nameStation)).thenReturn(
         RepairStationFactory.getStation(nameStation));
 
@@ -82,9 +81,25 @@ class RepairStationServiceTest {
         .map(repairmentRepository::countDistinctByRepairStation)).get()).thenReturn(
         RepairStationFactory.countCarsRepairedOnStation(nameStation));
 
-    //then
+    //when
     int actual = stationService.countCarsRepairedOnStation(nameStation);
+
+    //then
     int expected = 2;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void countCarsRepairedOnStationEmptyResult() {
+    //given
+    String nameStation = "Station2";
+    when(repairStationRepository.findByName(nameStation)).thenReturn(
+        Optional.empty());
+    //when
+    int actual = stationService.countCarsRepairedOnStation(nameStation);
+
+    //then
+    int expected = 0;
     assertEquals(expected, actual);
   }
 }
