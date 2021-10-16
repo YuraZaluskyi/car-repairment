@@ -13,6 +13,15 @@ public class CarFactory {
     return car;
   }
 
+  public static Car getCar(String id) {
+    Car car = new Car();
+    car.setManufacturer("manufactured1");
+    car.setYear(1111);
+    car.setModel("model1");
+    car.setGovernmentNumber(id);
+    return car;
+  }
+
   public static List<Car> getAllCars() {
     Car car1 = new Car();
     car1.setGovernmentNumber("1001");

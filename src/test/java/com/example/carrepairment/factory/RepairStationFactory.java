@@ -17,6 +17,14 @@ public class RepairStationFactory {
     return station;
   }
 
+  public static RepairStation getById(Long id) {
+    RepairStation repairStation = new RepairStation();
+    repairStation.setAddress("address station");
+    repairStation.setName("name station");
+    repairStation.setId(id);
+    return repairStation;
+  }
+
   public static Optional<RepairStation> getStationInformation(String name) {
     RepairStation station = createStation(new RepairStation());
     station.setName(name);
