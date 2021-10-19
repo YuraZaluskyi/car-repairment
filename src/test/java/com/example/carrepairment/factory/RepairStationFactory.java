@@ -84,8 +84,4 @@ public class RepairStationFactory {
     int count = (int) (station.getRepairments().stream().map(i -> i.getCar()).distinct().count());
     return count;
   }
-
-  public static void main(String[] args) {
-    System.out.println(countCarsRepairedOnStation("Repair Station"));
-  }
 }
