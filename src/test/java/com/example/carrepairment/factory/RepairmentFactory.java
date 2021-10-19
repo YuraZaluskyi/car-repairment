@@ -56,4 +56,30 @@ public class RepairmentFactory {
     return repairment;
   }
 
+  public static List<Repairment> getRepairments() {
+    Repairment repairment = new Repairment();
+    repairment.setPrice(1000L);
+    repairment.setId(100L);
+    repairment.setRepairDescription("repair description");
+    Car car = new Car();
+    car.setManufacturer("manufactured1");
+    car.setYear(1111);
+    car.setModel("model1");
+    car.setGovernmentNumber("1000000");
+    repairment.setCar(car);
+
+    Repairment repairment1 = new Repairment();
+    repairment1.setPrice(1010L);
+    repairment1.setId(101L);
+    repairment1.setRepairDescription("repair description1");
+    Car car1 = new Car();
+    car1.setManufacturer("manufactured2");
+    car1.setYear(2222);
+    car1.setModel("model2");
+    car1.setGovernmentNumber("2000000");
+    repairment1.setCar(car1);
+    repairment.setCar(car);
+
+    return List.of(repairment, repairment1);
+  }
 }
